@@ -1,4 +1,19 @@
+$color-1: #152230;
+
 body {
     margin: 0;
-    background-color: #152230;
+    background-color: $color-1;
+}
+
+#root {
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    box-sizing: border-box;
 }

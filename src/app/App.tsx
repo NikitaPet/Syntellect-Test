@@ -1,8 +1,6 @@
 import { configure } from "mobx";
-import FirstControl from "./FirstControl";
-import SecondControl from "./SecondControl";
-import ThirdControl from "./ThirdControl";
-import FourthControl from "./FourthControl";
+import ButtonControls from "./ButtonControls";
+import AutoCompleteControls from "./AutoCompleteControls";
 
 import "./App.scss";
 import styles from "./App.module.scss";
@@ -10,15 +8,14 @@ import styles from "./App.module.scss";
 export default function App() {
   return (
     <div className={styles.app}>
-      <div className={styles.controls}>
-        <h1>Контрол с кнопками</h1>
-        <FirstControl />
-        <SecondControl />
+      <div className={styles.section}>
+        <h1 className={styles.title}>Контрол с кнопками</h1>
+        <ButtonControls />
       </div>
-      <div className={styles.controls}>
-        <h1>Контрол-автокомплит</h1>
-        <ThirdControl />
-        <FourthControl />
+
+      <div className={styles.section}>
+        <h1 className={styles.title}>Контрол-автокомплит</h1>
+        <AutoCompleteControls />
       </div>
     </div>
   );

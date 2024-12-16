@@ -3,21 +3,29 @@ import cn from "classnames";
 import Control, { type Props as ControlProps } from "ui/Control";
 import Input, { type Props as InputProps } from "ui/Input";
 import Button, { type Props as ButtonProps } from "ui/Button";
-import ControlStore from "./ControlStore";
+import Store from "./Store";
 
 import styles from "./ButtonControl.module.scss";
 
 export default function ButtonControl({
+  store,
   className = "",
-  children,
+  leftButtons = [],
+  rightButtons = [],
   ...props
-}: ControlProps) {
+}: Props) {
   return (
     <Control
-      className={cn(styles["buttons-control"], { [className]: !!className })}
+      className={cn(styles["button-control"], { [className]: !!className })}
       {...props}
     >
-      {children}
+      {leftButtons.map((button) => (
+        <ControlButton onClick={button.onClick}>{button.text}</ControlButton>
+      ))}
+      <ControlledInput {...{ store }} />
+      {rightButtons.map((button) => (
+        <ControlButton onClick={button.onClick}>{button.text}</ControlButton>
+      ))}
     </Control>
   );
 }
@@ -41,5 +49,13 @@ export const ControlButton = observer(function ({ ...props }: ButtonProps) {
   return <Button className={styles["control-button"]} {...props} />;
 });
 
-export { ControlStore };
-export type ControlledInputProps = InputProps & { store: ControlStore };
+export type Props = ControlProps & {
+  store: Store;
+  leftButtons?: ButtonData[];
+  rightButtons?: ButtonData[];
+};
+export type ControlledInputProps = InputProps & { store: Store };
+export type ButtonData = {
+  text: string;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+};
