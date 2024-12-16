@@ -1,0 +1,18 @@
+.wrapper {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.control {
+    width: 100%;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #E5D6A0;
+}
