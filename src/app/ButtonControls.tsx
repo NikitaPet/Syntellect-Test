@@ -1,5 +1,4 @@
 import ButtonsControl, { Store } from "controls/ButtonControl";
-import { ControlledInput, ControlButton } from "controls/ButtonControl";
 import { type ButtonData } from "controls/ButtonControl";
 
 import styles from "./App.module.scss";
